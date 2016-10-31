@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ar.com.ivanfenoy.myroute.MainActivity">
+    tools:context="ar.com.ivanfenoy.myroute.activities.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"

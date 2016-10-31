@@ -1,3 +1,19 @@
 <resources>
+    <!--App-->
     <string name="app_name">My Route</string>
+    <string name="web_client_id">794070958021-5i1ha0t5anhes2qp2rv88u2hem8i4rgf.apps.googleusercontent.com</string>
+
+    <!-- LoginActivity -->
+    <string name="title_activity_login">Inicio de Sesión</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Ingresar</string>
+    <string name="action_sign_in_short">Ingresar</string>
+    <string name="error_invalid_email">El email es incorrecto</string>
+    <string name="error_invalid_password">La contraseña es muy corta. debe tener por lo menos 6 caracteres</string>
+    <string name="error_incorrect_password">La contraseña es incorrecta</string>
+    <string name="error_field_required">Este es un campo requerido</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
+    <string name="auth_failed">Usted no tiene una cuenta en My Route. Registrando...</string>
+    <string name="register_failed">Ocurrió un error al registar la cuenta.</string>
 </resources>
