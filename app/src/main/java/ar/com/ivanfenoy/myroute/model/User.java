@@ -13,9 +13,10 @@ public class User {
     public User() {
     }
 
-    public User(String username, String email, String image) {
-        this.username = username;
-        this.email = email;
-        this.image = image;
+    public User(String pUserID, String pUsername, String pEmail, String pImage) {
+        this.userID = pUserID;
+        this.username = pUsername;
+        this.email = pEmail;
+        this.image = pImage;
     }
 }

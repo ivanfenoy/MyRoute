@@ -2,7 +2,6 @@
     <!--App-->
     <string name="app_name">My Route</string>
     <string name="web_client_id">794070958021-5i1ha0t5anhes2qp2rv88u2hem8i4rgf.apps.googleusercontent.com</string>
-
     <!-- LoginActivity -->
     <string name="title_activity_login">Inicio de Sesión</string>
     <string name="prompt_email">Email</string>
@@ -16,4 +15,44 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
     <string name="auth_failed">Usted no tiene una cuenta en My Route. Registrando...</string>
     <string name="register_failed">Ocurrió un error al registar la cuenta.</string>
+
+    <!--MainActivity-->
+    <string name="enter_trip_name">Ingrese el nombre del viaje</string>
+    <string name="create_trip">Crear</string>
+    <string name="empty_trip_name">Debe ingresar el nombre del viaje</string>
+    <string name="enter_start_date">Ingrese fecha de partida</string>
+    <string name="msg_enter_start_date">Inicio del viaje</string>
+    <string name="select_img">Seleccione una imagen</string>
+    <string name="empty_start_date">Debe ingresar la fecha de partida</string>
+    <string name="empty_image">Debe seleccionar una imagen</string>
+    <string name="first_step_name">Comienzo del viaje</string>
+    <string name="question_delete_trip">¿Está seguro que quiere eliminar el viaje?</string>
+    <string name="yes">SI</string>
+    <string name="no">NO</string>
+    <string name="trips">Viajes</string>
+
+    <!-- Steps -->
+    <string name="enter_step_name">Ingrese el nombre del punto</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="enter_place">Seleccione una ciudad</string>
+    <string name="days_number">Ingrese la cantidad de días</string>
+    <string name="save">Guardar</string>
+    <string name="empty_step_name">Debe ingresar el nombre del punto</string>
+    <string name="empty_step_days">Debe ingresar la cantidad de días en el punto</string>
+    <string name="empty_step_point">Debe seleccionar la ubicación del punto</string>
+    <string name="btn_road">Ruta</string>
+    <string name="btn_bed">¿Donde dormir?</string>
+    <string name="btn_map">Mapa</string>
+    <string name="hint_place_name">Nombre</string>
+    <string name="hint_place_address">Dirección</string>
+    <string name="dialog_select_where_sleep">Parece que no todavía no ha seleccionado el lugar donde se hospedará ¿Desea seleccionarlo del mapa o ingresarlo manualmente?</string>
+    <string name="map">Mapa</string>
+    <string name="manually">Manualmente</string>
+    <string name="enter_place_name">Ingrese el nombre del lugar</string>
+    <string name="enter_place_address">Ingrese la dirección del lugar</string>
+    <string name="enter_place_info">Ingrese información adicional que desee</string>
+    <string name="empty_place_name">Debe ingresar el nombre del lugar</string>
+    <string name="empty_place_address">Debe  ingresar la dirección del lugar</string>
+    <string name="empty_place_info">Debe ingresar información adicional del lugar</string>
+
 </resources>

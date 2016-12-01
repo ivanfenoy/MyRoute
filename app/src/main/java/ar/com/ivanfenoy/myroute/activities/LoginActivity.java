@@ -38,6 +38,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.places.Places;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
@@ -119,6 +120,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .addApi(Places.GEO_DATA_API)
+                .addApi(Places.PLACE_DETECTION_API)
                 .build();
 
         ((SignInButton)findViewById(R.id.sign_in_button)).setOnClickListener(new OnClickListener() {
@@ -135,6 +138,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser wFUser = firebaseAuth.getCurrentUser();
                 if (wFUser != null) {
+                    App.mUser = new User(wFUser.getUid(), wFUser.getDisplayName(), wFUser.getEmail(), wFUser.getPhotoUrl().toString());
 //                    if (mNewUser){
 //                        User wNewUser = new User(wFUser.getDisplayName(), wFUser.getEmail(), wFUser.getPhotoUrl().toString());
 //                        App.DB().saveNewUser(wFUser.getUid(), wNewUser);
