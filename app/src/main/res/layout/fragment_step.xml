@@ -1,0 +1,98 @@
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:background="@color/grey_int"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/grey_int"
+        tools:context="ar.com.ivanfenoy.myroute.fragments.StepFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="2">
+
+            <RelativeLayout
+                android:id="@+id/btn_road"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:foreground="?selectableItemBackground"
+                android:background="@drawable/white_button_background"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1">
+
+                <com.joanzapata.iconify.widget.IconTextView
+                    android:id="@+id/ico_road"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:shadowColor="#22000000"
+                    android:shadowDx="3"
+                    android:shadowDy="3"
+                    android:shadowRadius="1"
+                    android:text="{fa-map-o}"
+                    android:textSize="40sp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_centerInParent="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ico_road"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/btn_map"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btn_bed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:foreground="?selectableItemBackground"
+                android:background="@drawable/white_button_background"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1">
+
+                <com.joanzapata.iconify.widget.IconTextView
+                    android:id="@+id/ico_bed"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:shadowColor="#22000000"
+                    android:shadowDx="3"
+                    android:shadowDy="3"
+                    android:shadowRadius="1"
+                    android:text="{fa-bed}"
+                    android:textSize="40sp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_centerInParent="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ico_bed"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/btn_bed"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
