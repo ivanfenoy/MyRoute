@@ -54,5 +54,6 @@
     <string name="empty_place_name">Debe ingresar el nombre del lugar</string>
     <string name="empty_place_address">Debe  ingresar la dirección del lugar</string>
     <string name="empty_place_info">Debe ingresar información adicional del lugar</string>
+    <string name="permission_denied">No se otorgaron los permisos necesarios para la app</string>
 
 </resources>

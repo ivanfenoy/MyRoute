@@ -22,16 +22,17 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAjzuN7SRnkU_sgVjN-HXctGAdxeuVLGAs" />
 
-        <activity android:name=".activities.MainActivity" />
-        <activity android:name=".activities.LoginActivity">
+        <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.TripActivity" />
-        <activity android:name=".activities.MapActivity"></activity>
+        <activity android:name=".activities.MapActivity" />
     </application>
 
 </manifest>
