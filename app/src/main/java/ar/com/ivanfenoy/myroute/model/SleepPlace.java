@@ -12,7 +12,8 @@ public class SleepPlace implements Parcelable {
     public String address;
     public double latitude;
     public double longitude;
-    public String info;
+    public String phone;
+    public String web;
 
     public SleepPlace(){}
 
@@ -28,16 +29,18 @@ public class SleepPlace implements Parcelable {
         dest.writeString(this.name);
         dest.writeDouble(this.latitude);
         dest.writeDouble(this.longitude);
-        dest.writeString(this.info);
+        dest.writeString(this.phone);
         dest.writeString(this.address);
+        dest.writeString(this.web);
     }
 
     protected SleepPlace(Parcel in) {
         this.name = in.readString();
-        this.latitude = in.readFloat();
-        this.longitude = in.readFloat();
-        this.info = in.readString();
+        this.latitude = in.readDouble();
+        this.longitude = in.readDouble();
+        this.phone = in.readString();
         this.address = in.readString();
+        this.web = in.readString();
     }
 
     public static final Parcelable.Creator<SleepPlace> CREATOR = new Parcelable.Creator<SleepPlace>() {

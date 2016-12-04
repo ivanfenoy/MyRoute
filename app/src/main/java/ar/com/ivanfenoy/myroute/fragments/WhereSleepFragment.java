@@ -7,10 +7,10 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -21,7 +21,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 
 import ar.com.ivanfenoy.myroute.R;
-import ar.com.ivanfenoy.myroute.StepDialogFragment;
 import ar.com.ivanfenoy.myroute.activities.TripActivity;
 import ar.com.ivanfenoy.myroute.interfaces.ObjectSelected;
 import ar.com.ivanfenoy.myroute.model.SleepPlace;
@@ -34,6 +33,10 @@ import static android.app.Activity.RESULT_OK;
 public class WhereSleepFragment extends Fragment {
     @Bind(R.id.txt_place_name) TextView mTxtPlaceName;
     @Bind(R.id.txt_place_address) TextView mTxtPlaceAddress;
+    @Bind(R.id.txt_place_phone) TextView mTxtPlacePhone;
+    @Bind(R.id.txt_place_web) TextView mTxtPlaceWeb;
+    @Bind(R.id.ll_phone) LinearLayout mLlPhone;
+    @Bind(R.id.ll_web) LinearLayout mLlWeb;
 
     private static final String ARG_PARAM1 = "sleepPlace";
 
@@ -65,23 +68,6 @@ public class WhereSleepFragment extends Fragment {
                              Bundle savedInstanceState) {
         View wView = inflater.inflate(R.layout.fragment_where_sleep, container, false);
         ButterKnife.bind(this, wView);
-
-        wView.setOnKeyListener( new View.OnKeyListener()
-        {
-            @Override
-            public boolean onKey( View v, int keyCode, KeyEvent event )
-            {
-                if( keyCode == KeyEvent.KEYCODE_BACK )
-                {
-                    //your code here
-
-
-                }
-                return false;
-            }
-        } );
-
-
         return wView;
     }
 
@@ -134,6 +120,19 @@ public class WhereSleepFragment extends Fragment {
     private void initView() {
         mTxtPlaceAddress.setText(mStep.sleepPlace.address);
         mTxtPlaceName.setText(mStep.sleepPlace.name);
+        if(!mStep.sleepPlace.phone.isEmpty()){
+            mTxtPlacePhone.setText(mStep.sleepPlace.phone);
+        }
+        else{
+            mLlPhone.setVisibility(View.GONE);
+        }
+        if(!mStep.sleepPlace.web.isEmpty()){
+            mTxtPlaceWeb.setText(mStep.sleepPlace.web);
+        }
+        else{
+            mLlWeb.setVisibility(View.GONE);
+        }
+
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -145,6 +144,9 @@ public class WhereSleepFragment extends Fragment {
                 mStep.sleepPlace.address = place.getAddress().toString();
                 mStep.sleepPlace.latitude = place.getLatLng().latitude;
                 mStep.sleepPlace.longitude = place.getLatLng().longitude;
+                mStep.sleepPlace.phone = place.getPhoneNumber().toString();
+                mStep.sleepPlace.web = place.getWebsiteUri().toString();
+                ((TripActivity)getActivity()).updateStep(mStep);
                 initView();
             }
         }
@@ -155,18 +157,10 @@ public class WhereSleepFragment extends Fragment {
         @Override
         public void select(Object object) {
             mStep.sleepPlace = (SleepPlace)object;
+            ((TripActivity)getActivity()).updateStep(mStep);
             initView();
+
         }
     };
-
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        switch (keyCode) {
-            case KeyEvent.KEYCODE_BACK:
-
-                return true;
-        }
-        return false;
-    }
 
 }

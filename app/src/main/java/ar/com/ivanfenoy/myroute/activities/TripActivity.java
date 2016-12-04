@@ -107,4 +107,13 @@ public class TripActivity extends AppCompatActivity {
             mFabStep.setVisibility(View.VISIBLE);
         }
     }
+
+    public void updateStep(Step pStep){
+        for (Step wStep: mTrip.listSteps) {
+            if (wStep.equals(pStep)){
+                mTrip.listSteps.set(mTrip.listSteps.indexOf(wStep), pStep);
+            }
+        }
+        App.DB().updateTrip(mTrip);
+    }
 }

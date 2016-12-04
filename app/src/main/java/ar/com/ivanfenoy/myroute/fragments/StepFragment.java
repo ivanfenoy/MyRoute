@@ -17,6 +17,7 @@ import ar.com.ivanfenoy.myroute.R;
 import ar.com.ivanfenoy.myroute.activities.MapActivity;
 import ar.com.ivanfenoy.myroute.activities.TripActivity;
 import ar.com.ivanfenoy.myroute.adapters.StepsAdapter;
+import ar.com.ivanfenoy.myroute.model.SleepPlace;
 import ar.com.ivanfenoy.myroute.model.Step;
 import ar.com.ivanfenoy.myroute.model.Trip;
 import butterknife.Bind;

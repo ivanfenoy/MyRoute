@@ -1,6 +1,5 @@
 package ar.com.ivanfenoy.myroute.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
@@ -13,30 +12,13 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.places.AutocompleteFilter;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlaceAutocomplete;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-
 import ar.com.ivanfenoy.myroute.R;
 import ar.com.ivanfenoy.myroute.interfaces.ObjectSelected;
-import ar.com.ivanfenoy.myroute.model.Day;
-import ar.com.ivanfenoy.myroute.model.Point;
 import ar.com.ivanfenoy.myroute.model.SleepPlace;
-import ar.com.ivanfenoy.myroute.model.Step;
-import ar.com.ivanfenoy.myroute.model.Trip;
 import ar.com.ivanfenoy.myroute.utils.Utils;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static android.app.Activity.RESULT_CANCELED;
-import static android.app.Activity.RESULT_OK;
 
 public class SleepPlaceDialogFragment extends DialogFragment {
     @Bind(R.id.til_place_name)TextInputLayout mTilPlaceName;
@@ -111,7 +93,7 @@ public class SleepPlaceDialogFragment extends DialogFragment {
         SleepPlace wSleepPlace = new SleepPlace();
         wSleepPlace.name = wName;
         wSleepPlace.address = wAddress;
-        wSleepPlace.info = wInfo;
+        wSleepPlace.phone = wInfo;
         mListener.select(wSleepPlace);
         this.dismiss();
     }

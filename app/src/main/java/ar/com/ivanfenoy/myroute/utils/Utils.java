@@ -56,7 +56,7 @@ public class Utils {
     public static void sendToast(Activity pAct, String pMsg, int pMessageType) {
         switch (pMessageType){
             case TOAST_INFO:
-                showToast(pAct, pMsg, "{fa-info}", pAct.getResources().getColor(R.color.colorPrimary), Toast.LENGTH_SHORT);
+                showToast(pAct, pMsg, "{fa-phone}", pAct.getResources().getColor(R.color.colorPrimary), Toast.LENGTH_SHORT);
                 break;
             case TOAST_ERROR:
                 showToast(pAct, pMsg, "{fa-times}", pAct.getResources().getColor(R.color.red_google), Toast.LENGTH_SHORT);
@@ -70,7 +70,7 @@ public class Utils {
     public static void sendToast(Activity pAct, int pMsg, int pMessageType) {
         switch (pMessageType){
             case TOAST_INFO:
-                showToast(pAct, pAct.getString(pMsg), "{fa-info}", pAct.getResources().getColor(R.color.colorPrimary), Toast.LENGTH_SHORT);
+                showToast(pAct, pAct.getString(pMsg), "{fa-phone}", pAct.getResources().getColor(R.color.colorPrimary), Toast.LENGTH_SHORT);
                 break;
             case TOAST_ERROR:
                 showToast(pAct, pAct.getString(pMsg), "{fa-times}", pAct.getResources().getColor(R.color.red_google), Toast.LENGTH_SHORT);

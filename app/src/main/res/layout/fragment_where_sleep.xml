@@ -51,19 +51,105 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/ico_hotel"
+                    android:layout_alignTop="@+id/ico_hotel"
+                    android:layout_alignBottom="@+id/ico_hotel"
                     android:layout_marginLeft="10dp"
-                    android:hint="@string/hint_place_name"
-                    style="@style/text_primary_small"/>
+                    android:gravity="center_vertical"
+                    tools:hint="@string/hint_place_name"
+                    style="@style/text_primary_medium_bold"/>
 
-                <TextView
-                    android:id="@+id/txt_place_address"
+                <LinearLayout
+                    android:id="@+id/ll_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/ico_hotel"
-                    android:layout_marginLeft="10dp"
-                    android:layout_below="@+id/txt_place_name"
-                    android:hint="@string/hint_place_address"
-                    style="@style/text_primary_small"/>
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/ico_hotel">
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:shadowColor="#22000000"
+                        android:shadowDx="3"
+                        android:shadowDy="3"
+                        android:shadowRadius="1"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="{fa-map-marker}"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="24sp"/>
+
+                    <TextView
+                        android:id="@+id/txt_place_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:hint="@string/hint_place_address"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        style="@style/text_primary_small"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/ll_address">
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:shadowColor="#22000000"
+                        android:shadowDx="3"
+                        android:shadowDy="3"
+                        android:shadowRadius="1"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="{fa-phone}"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="24sp"/>
+
+                    <TextView
+                        android:id="@+id/txt_place_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:hint="@string/hint_place_address"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        style="@style/text_primary_small"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_web"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/ll_phone">
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:shadowColor="#22000000"
+                        android:shadowDx="3"
+                        android:shadowDy="3"
+                        android:shadowRadius="1"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="{mdi-web}"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="24sp"/>
+
+                    <TextView
+                        android:id="@+id/txt_place_web"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:hint="@string/hint_place_address"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        style="@style/text_primary_small"/>
+
+                </LinearLayout>
 
             </RelativeLayout>
 
