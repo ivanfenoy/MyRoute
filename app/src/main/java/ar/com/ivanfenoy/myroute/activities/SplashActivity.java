@@ -16,6 +16,7 @@ public class SplashActivity extends AppCompatActivity {
             Manifest.permission.GET_ACCOUNTS,
             Manifest.permission.READ_CONTACTS,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.CALL_PHONE,
             Manifest.permission.ACCESS_FINE_LOCATION
     };
 

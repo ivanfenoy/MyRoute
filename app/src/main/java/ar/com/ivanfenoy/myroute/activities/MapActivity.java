@@ -21,6 +21,7 @@ import java.io.File;
 
 import ar.com.ivanfenoy.myroute.R;
 import ar.com.ivanfenoy.myroute.fragments.StepsViewFragment;
+import ar.com.ivanfenoy.myroute.model.SleepPlace;
 import ar.com.ivanfenoy.myroute.model.Step;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -29,7 +30,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     @Bind(R.id.bar_toolbar) Toolbar mToolbar;
 
     private GoogleMap mMap;
-    private Step mStep;
+    private Step mStep = null;
+    private SleepPlace mSleepPlace = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,13 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         setContentView(R.layout.activity_map);
         ButterKnife.bind(this);
 
-        mStep = getIntent().getExtras().getParcelable("step");
+        if (getIntent().hasExtra("step")) {
+            mStep = getIntent().getExtras().getParcelable("step");
+        }
+        if (getIntent().hasExtra("place")) {
+            mSleepPlace = getIntent().getExtras().getParcelable("place");
+        }
+
     }
 
     @Override
@@ -50,7 +58,12 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private void initToolbar(){
         setSupportActionBar(mToolbar);
         mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
-        mToolbar.setTitle(mStep.point.name);
+        if(mStep != null) {
+            mToolbar.setTitle(mStep.point.name);
+        }
+        else{
+            mToolbar.setTitle(getString(R.string.map));
+        }
         mToolbar.setNavigationIcon(new IconDrawable(this, FontAwesomeIcons.fa_arrow_left)
                 .colorRes(R.color.white)
                 .actionBarSize());
@@ -72,8 +85,15 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        LatLng mPoint = new LatLng(mStep.point.latitude, mStep.point.longitude);
-        mMap.addMarker(new MarkerOptions().position(mPoint).title(mStep.point.name));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mPoint, 12));
+        if(mStep != null) {
+            LatLng mPoint = new LatLng(mStep.point.latitude, mStep.point.longitude);
+            mMap.addMarker(new MarkerOptions().position(mPoint).title(mStep.point.name));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mPoint, 12));
+        }
+        if(mSleepPlace != null) {
+            LatLng mPoint = new LatLng(mSleepPlace.latitude, mSleepPlace.longitude);
+            mMap.addMarker(new MarkerOptions().position(mPoint).title(mSleepPlace.name));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mPoint, 17));
+        }
     }
 }

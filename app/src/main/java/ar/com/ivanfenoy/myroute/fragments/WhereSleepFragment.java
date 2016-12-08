@@ -2,6 +2,7 @@ package ar.com.ivanfenoy.myroute.fragments;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -21,12 +22,14 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 
 import ar.com.ivanfenoy.myroute.R;
+import ar.com.ivanfenoy.myroute.activities.MapActivity;
 import ar.com.ivanfenoy.myroute.activities.TripActivity;
 import ar.com.ivanfenoy.myroute.interfaces.ObjectSelected;
 import ar.com.ivanfenoy.myroute.model.SleepPlace;
 import ar.com.ivanfenoy.myroute.model.Step;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -162,5 +165,25 @@ public class WhereSleepFragment extends Fragment {
 
         }
     };
+
+    @OnClick(R.id.txt_place_address)
+    public void openMap(View view){
+        Intent wI = new Intent(getActivity(), MapActivity.class);
+        wI.putExtra("place", mStep.sleepPlace);
+        getActivity().startActivity(wI);
+    }
+
+    @OnClick(R.id.txt_place_phone)
+    public void callPlace(View view){
+        Intent wI = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + mStep.sleepPlace.phone));
+        getActivity().startActivity(wI);
+    }
+
+    @OnClick(R.id.txt_place_web)
+    public void openWeb(View view){
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(mStep.sleepPlace.web));
+        getActivity().startActivity(i);
+    }
 
 }
