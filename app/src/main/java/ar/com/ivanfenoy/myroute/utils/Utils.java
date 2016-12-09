@@ -6,18 +6,30 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.support.v4.content.ContextCompat;
+import android.text.TextPaint;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.joanzapata.iconify.IconDrawable;
+import com.joanzapata.iconify.Iconify;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.squareup.picasso.Picasso;
 
@@ -260,6 +272,21 @@ public class Utils {
         if(wImage.exists()){
             wImage.delete();
         }
+    }
+
+    public static Bitmap createDrawableFromView(Context pContext, View pView) {
+        DisplayMetrics wDisplayMetrics = new DisplayMetrics();
+        ((Activity) pContext).getWindowManager().getDefaultDisplay().getMetrics(wDisplayMetrics);
+        pView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        pView.measure(wDisplayMetrics.widthPixels, wDisplayMetrics.heightPixels);
+        pView.layout(0, 0, wDisplayMetrics.widthPixels, wDisplayMetrics.heightPixels);
+        pView.buildDrawingCache();
+        Bitmap wBitmap = Bitmap.createBitmap(pView.getMeasuredWidth(), pView.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
+
+        Canvas wCanvas = new Canvas(wBitmap);
+        pView.draw(wCanvas);
+
+        return wBitmap;
     }
 
 //    public static LatLngBounds toBounds(LatLng center, double radius) {

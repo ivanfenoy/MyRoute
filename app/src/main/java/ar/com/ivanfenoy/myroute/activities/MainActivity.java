@@ -28,6 +28,7 @@ import ar.com.ivanfenoy.myroute.R;
 import ar.com.ivanfenoy.myroute.adapters.TripsAdapter;
 import ar.com.ivanfenoy.myroute.fragments.NewTripFragment;
 import ar.com.ivanfenoy.myroute.interfaces.ListCallback;
+import ar.com.ivanfenoy.myroute.interfaces.ObjectCallback;
 import ar.com.ivanfenoy.myroute.model.Trip;
 import ar.com.ivanfenoy.myroute.utils.Utils;
 import butterknife.Bind;

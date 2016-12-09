@@ -10,6 +10,7 @@ import com.joanzapata.iconify.fonts.FontAwesomeModule;
 import com.joanzapata.iconify.fonts.MaterialCommunityModule;
 
 import ar.com.ivanfenoy.myroute.activities.LoginActivity;
+import ar.com.ivanfenoy.myroute.data.ApiController;
 import ar.com.ivanfenoy.myroute.data.DataBaseConnection;
 import ar.com.ivanfenoy.myroute.model.User;
 
@@ -21,6 +22,7 @@ public class App extends Application {
     public static final String SHARED_PREFERENCES = "ar.com.ivanfenoy.myroute.shared_preferences";
     public static final String FILE_LOCATIONS = Environment.getExternalStorageDirectory().toString() + "/MyRoute";
     private static DataBaseConnection mDB;
+    private static ApiController mApiController;
     private static Context mContext;
     public static User mUser;
 
@@ -39,10 +41,20 @@ public class App extends Application {
         return mDB;
     }
 
+    public static ApiController api() {
+        if(mApiController == null) {
+            mApiController = new ApiController(mContext);
+        }
+        return mApiController;
+    }
+
     public static void sentToLogin(){
         Intent wI = new Intent(mContext, LoginActivity.class);
         wI.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         mContext.startActivity(wI);
     }
 
+    public static Context getContext() {
+        return mContext;
+    }
 }

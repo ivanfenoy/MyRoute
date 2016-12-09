@@ -56,4 +56,15 @@
     <string name="empty_place_info">Debe ingresar información adicional del lugar</string>
     <string name="permission_denied">No se otorgaron los permisos necesarios para la app</string>
 
+    <!--Mapa-->
+    <string name="map_info">Información</string>
+    <string name="map_attraction">Atracciones</string>
+    <string name="map_hotel">Hoteles</string>
+    <string name="map_park">Parques \ntemáticos</string>
+    <string name="map_view_point">Puntos \npanoramicos</string>
+    <string name="map_camping">Campings</string>
+
+    <!--Commons-->
+    <string name="error_404">No se encontró respuesta</string>
+    <string name="not_find_point">No  se encontraron resultados</string>
 </resources>

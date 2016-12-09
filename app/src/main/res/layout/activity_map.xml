@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_map"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="ar.com.ivanfenoy.myroute.activities.MapActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbarLayout"
@@ -28,6 +26,16 @@
         android:layout_height="match_parent"
         android:id="@+id/map"
         tools:context=".MapActivity"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:name="com.google.android.gms.maps.SupportMapFragment" />
 
-</LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_gravity="end|bottom"
+        android:src="@android:drawable/btn_plus"
+        app:borderWidth="0dp" />
+
+</android.support.design.widget.CoordinatorLayout>
